@@ -5,12 +5,7 @@ void main() => runApp(FriendlyChatApp());
 class FriendlyChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Frienly Chat',
-        home: Scaffold(
-            appBar: AppBar(
-          title: ChatScreen(),
-        )));
+    return MaterialApp(title: 'Frienly Chat', home: ChatScreen());
   }
 }
 
@@ -20,13 +15,12 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final TextEditingController _textController = new TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _buildTextComposer(),
-      ),
+      appBar: AppBar(title: Text("Friendly chat")),
+      body: _buildTextComposer(),
     );
   }
 
@@ -36,11 +30,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Widget _buildTextComposer() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      margin: const EdgeInsets.symmetric(horizontal: 8.0),
       child: TextField(
         controller: _textController,
         onSubmitted: _handleSubmitted,
-        decoration: InputDecoration.collapsed(hintText: 'Send a Message'),
+        decoration: InputDecoration.collapsed(hintText: "Send a message"),
       ),
     );
   }
